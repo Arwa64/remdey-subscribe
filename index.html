@@ -1,21 +1,31 @@
-<div id="paypal-button-container-P-65F716268A865445KNBBHRLI"></div>
-<script src="https://www.paypal.com/sdk/js?client-id=AcIK6WjCWuFHOYmVSOU-Vwr2-nrIRxjfs7F2L9BMsFrN_57Wy_5FtRiv6uFSIHl1byRiSVVwIh2hID6v&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-<script>
-  paypal.Buttons({
-      style: {
-          shape: 'rect',
-          color: 'white',
-          layout: 'vertical',
-          label: 'subscribe'
-      },
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          /* Creates the subscription */
-          plan_id: 'P-65F716268A865445KNBBHRLI'
-        });
-      },
-      onApprove: function(data, actions) {
-        alert(data.subscriptionID); // You can add optional success message for the subscriber here
-      }
-  }).render('#paypal-button-container-P-65F716268A865445KNBBHRLI'); // Renders the PayPal button
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscribe to REMdey</title>
+</head>
+<body>
+  <h2 style="text-align: center;">Start your 3-day Free Trial</h2>
+  <div id="paypal-button-container-P-65F716268A865445KNBBHRLI" style="display: flex; justify-content: center;"></div>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AcIK6WjCWuFHOYmVSOU-Vwr2-nrIRxjfs7F2L9BMsFrN_57Wy_5FtRiv6uFSIHl1byRiSVVwIh2hID6v&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+  <script>
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'white',
+            layout: 'vertical',
+            label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+          return actions.subscription.create({
+            plan_id: 'P-65F716268A865445KNBBHRLI'
+          });
+        },
+        onApprove: function(data, actions) {
+          alert('✅ Subscription successful! ID: ' + data.subscriptionID);
+        }
+    }).render('#paypal-button-container-P-65F716268A865445KNBBHRLI');
+  </script>
+</body>
+</html>
